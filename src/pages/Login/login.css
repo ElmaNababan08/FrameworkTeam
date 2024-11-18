@@ -1,0 +1,7 @@
+.login-container {
+	display: flex;
+	flex-direction: column; /* Stack content vertically */
+	/* Align items along the cross-axis (center) */
+	justify-content: center; /* Center content along the main axis (vertically) */
+	min-height: 85vh; /* Ensure container takes up the full viewport height */
+}

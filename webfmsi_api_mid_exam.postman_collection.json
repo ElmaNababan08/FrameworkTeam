@@ -1,0 +1,83 @@
+{
+    "info": {
+        "_postman_id": "b2ec0f54-b82e-416b-b8ab-398381505cc6",
+        "name": "webfmsi_api_mid_exam",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Fetch Playlist by Group ID",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "{{webfmsi}}/api/playlist/{{group_id}}",
+                    "host": ["{{webfmsi}}"],
+                    "path": ["api", "playlist", "{{group_id}}"]
+                }
+            }
+        },
+        {
+            "name": "Create Playlist",
+            "request": {
+                "method": "POST",
+                "body": {
+                    "mode": "formdata",
+                    "formdata": [
+                        {"key": "play_name", "value": "My Playlist", "type": "text"},
+						{"key": "play_url", "value": "https://youtu.be/{video_id}", "type": "text"},
+						{"key": "play_thumbnail", "value": "https://img.youtube.com/vi/{video_id}/0.jpg", "type": "jpg"},
+                        {"key": "play_genre", "value": "education", "type": "text"},
+                        {"key": "play_description", "value": "Description here", "type": "text"}
+                    ]
+                },
+                "url": {
+                    "raw": "{{webfmsi}}/api/playlist/{{group_id}}",
+                    "host": ["{{webfmsi}}"],
+                    "path": ["api", "playlist", "{{group_id}}"]
+                }
+            }
+        },
+        {
+            "name": "Update Playlist",
+            "request": {
+                "method": "PUT",
+                "body": {
+                    "mode": "formdata",
+                    "formdata": [
+                        {"key": "play_name", "value": "Updated Playlist", "type": "text"},
+                        {"key": "play_url", "value": "http://example.com/updated", "type": "text"},
+                        {"key": "play_thumbnail", "value": "http://example.com/updated_thumbnail.jpg", "type": "text"},
+                        {"key": "play_genre", "value": "movie", "type": "text"},
+                        {"key": "play_description", "value": "Updated description", "type": "text"}
+                    ]
+                },
+                "url": {
+                    "raw": "{{webfmsi}}/api/playlist/update/{{id_play}}",
+                    "host": ["{{webfmsi}}"],
+                    "path": ["api", "playlist", "update", "{{id_play}}"]
+                }
+            }
+        },
+        {
+            "name": "Delete Playlist",
+            "request": {
+                "method": "DELETE",
+                "url": {
+                    "raw": "{{webfmsi}}/api/playlist/{{id_play}}",
+                    "host": ["{{webfmsi}}"],
+                    "path": ["api", "playlist", "{{id_play}}"]
+                }
+            }
+        }
+    ],
+    "variable": [
+        {"key": "webfmsi", "value": "https://webfmsi.singapoly.com"},
+        {"key": "group_id", "value": "30"},
+        {"key": "id_play", "value": "4"},
+
+		{
+            "key": "lumen_local",
+            "value": "http://127.0.0.1:8000"
+		}
+	]
+}
